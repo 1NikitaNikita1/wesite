@@ -1,7 +1,7 @@
 :root {
   --background-primary: #1F2227;
   --background-secondary: #282C34;
-  --gradient-primary: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(45,50,58,1) 100%);
+  --gradient-primary: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(45, 50, 58, 1) 100%);
   --text-primary: #fff;
   --text-secondary: #fff7;
   --text-accent: #81D4FA;
@@ -16,4 +16,19 @@ body {
   font-family: 'Switzer', sans-serif;
   background: #1F2227;
   color: #fff;
+}
+
+h1 {
+  font-size: 80px;
+  margin: 0 0 10px;
+}
+
+h2 {
+  font-size: 64px;
+  margin: 0 0 10px;
+}
+
+h3 {
+  font-size: 80px;
+  margin: 0 0 10px;
 }
