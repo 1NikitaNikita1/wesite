@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Heading } from '../heading';
+import { Heading, HType } from '../heading';
 
 import glow from '../../assets/glow.png';
 
 export const Contacts: FC = () => {
     return (
         <ScContacts>
-            <Heading title='Let’s get in touch!' tag='Contacts'>
+            <Heading type={HType.h3} title='Let’s get in touch!' tag='Contacts'>
                 <span style={{ opacity: 0.7 }}>
                     If you are interested in my candidacy, contact me at your convenience.
                 </span>
@@ -84,6 +84,37 @@ const ScContacts = styled.footer`
             font-size: 28px;
             &:hover {
                 color: #81d4fa;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        .contacts-wrap {
+            .item {
+                gap: 8px;
+            }
+            .label {
+                font-size: 16px;
+            }
+            a {
+                font-size: 18px;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        padding-bottom: 1px;
+
+        .contacts-wrap {
+            flex-direction: column;
+            .item {
+                flex: initial;
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 32px;
+
+                &:last-child {
+                    order: -1;
+                }
             }
         }
     }

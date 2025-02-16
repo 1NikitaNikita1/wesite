@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { EditorView } from '@codemirror/view';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import icon from '../../assets/js-icon.svg';
 
-const COVER_LETTER = `As an experienced Front-end Developer, I have a strong \ncommand of Sass, Less, and BEM, as well as proficiency \nin Git, Scrum, Vue.js, Nuxt.js, Node.js, Express.js, and \nMongoDB. I work effectively in Agile development \nenvironments, ensuring timely delivery of projects while \nmaintaining high-quality standards. \n//\nWith excellent problem-solving skills and attention to \ndetail, I am confident in my ability to contribute to \nany team, delivering successful projects with responsive \ndesign, cross-browser compatibility, and website \noptimization.`;
+const COVER_LETTER = `As a Front-end Developer, I have extensive experience with Vue.js, Nuxt.js, React, Next.js, and TypeScript. I’ve worked in product teams on long-term projects and Web3 startups, focusing on performance, scalability, and blockchain integrations. My expertise includes building maintainable UI architectures using Sass, Less, BEM, and styled-components.
+//
+I thrive in Agile environments, collaborating with designers and backend developers to ensure seamless user experiences. With a strong focus on responsive design, cross-browser compatibility, and performance optimization, I consistently deliver high-quality solutions that meet business and user needs.`;
 
 export const CoverLetter: FC = () => {
+    const [targetRef, isIntersecting] = useIntersectionObserver();
+
     return (
-        <ScCoverLetter>
+        <ScCoverLetter isIntersecting={isIntersecting} ref={targetRef}>
             <ScCodeHeader>
                 <div className='tab'>
                     <img alt='' src={icon} />
@@ -50,14 +55,19 @@ const ScCodeHeader = styled.div`
     }
 `;
 
-const ScCoverLetter = styled.div`
+const ScCoverLetter = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop),
+})<{ isIntersecting: boolean }>`
     max-width: 820px;
     margin-inline: auto;
     border-radius: 0 0 8px 8px;
     overflow: hidden;
     margin-bottom: 80px;
+    transition: ease 0.5s;
+    opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
+    scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.7)};
 
-    .cm-editor{
+    .cm-editor {
         background: transparent;
     }
 
@@ -67,7 +77,7 @@ const ScCoverLetter = styled.div`
         line-height: 150%;
         padding-bottom: 80px;
     }
-    .cm-line:nth-child(7) {
+    .cm-line:nth-child(2) {
         color: #32aa57;
     }
     .cm-line {
@@ -95,5 +105,33 @@ const ScCoverLetter = styled.div`
     }
     .cm-selectionMatch {
         background: transparent;
+    }
+
+    @media (max-width: 991px) {
+        max-width: 650px;
+
+        .cm-line {
+            padding-left: 16px;
+            font-size: 16px;
+            line-height: 160%;
+        }
+        .cm-lineNumbers .cm-gutterElement {
+            font-size: 16px;
+        }
+
+        .cm-content {
+            padding-bottom: 32px;
+        }
+    }
+
+    @media (max-width: 577px) {
+        max-width: 340px;
+        margin-top: 32px;
+
+        .cm-line {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 0 0 0 16px;
+        }
     }
 `;

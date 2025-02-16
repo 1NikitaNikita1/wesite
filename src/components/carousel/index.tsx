@@ -39,12 +39,13 @@ export enum CarouselDirection {
     right = 'right',
 }
 
-export const Carousel: FC<{ direction?: CarouselDirection }> = ({
+export const Carousel: FC<{ direction?: CarouselDirection; speed?: number }> = ({
     direction = CarouselDirection.left,
+    speed = 15,
 }): JSX.Element => {
     return (
         <ScCarousel>
-            <Marquee direction={direction} autoFill speed={15}>
+            <Marquee direction={direction} autoFill speed={speed}>
                 {baseConfig.map(({ cover, width, height }, index) => (
                     <div
                         className='slide'

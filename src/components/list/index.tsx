@@ -29,7 +29,9 @@ interface ScListProps {
     marker?: Marker;
 }
 
-const ScList = styled.ul<ScListProps>`
+const ScList = styled.ul.withConfig({
+    shouldForwardProp: (prop) => !['marker'].includes(prop),
+})<ScListProps>`
     box-sizing: border-box;
     margin: 0 0 42px 0;
     padding: 0;
@@ -58,5 +60,25 @@ const ScList = styled.ul<ScListProps>`
             marker === Marker.blue
                 ? 'none'
                 : 'brightness(0) saturate(100%) invert(83%) sepia(3%) saturate(5126%) hue-rotate(359deg) brightness(93%) contrast(92%)'};
+    }
+
+    @media (max-width: 991px) {
+        margin: 0 0 24px;
+        gap: 12px;
+
+        li {
+            font-size: 16px;
+            gap: 8px;
+        }
+
+        .marker {
+            flex: 0 0 20px;
+            max-width: 20px;
+            height: 20px;
+            width: 20px;
+        }
+    }
+    @media (max-width: 767px) {
+        margin-bottom: 16px;
     }
 `;

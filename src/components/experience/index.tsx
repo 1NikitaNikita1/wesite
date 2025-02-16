@@ -49,4 +49,10 @@ export const Experience: FC = () => {
     );
 };
 
-const ScExperience = styled.div``;
+const ScExperience = styled.div`
+    @media (max-width: 577px) {
+        p {
+            display: none;
+        }
+    }
+`;
