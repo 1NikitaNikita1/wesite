@@ -57,15 +57,16 @@ const ScCase = styled.div.withConfig({
     transition-delay: 1s;
     transition: ease 0.5s;
     opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
-    scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.6)};
+    scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.5)};
 
     svg {
         position: absolute;
-        bottom: -46px;
         z-index: -1;
-        transition: 2s;
-
+        transition: 0.7s;
+        transition-delay: 0.2s;
         transform-origin: bottom;
+        height: ${({ isIntersecting }) => (isIntersecting ? '164px' : 0)};
+        bottom: ${({ isIntersecting }) => (isIntersecting ? '-46px' : '100%')};
     }
 
     .box {

@@ -6,7 +6,7 @@ import { TCase, Case } from './case';
 const EXPERIENCE: TCase[] = [
     {
         start: '06/2023',
-        end: 'Present',
+        end: '02/2025',
         title: 'Web3 Developer at Claimr.io',
         description:
             'The main focus of my work involved developing user interfaces and web applications using React.js and Typescript. I also actively interacted with Ethers.js to facilitate blockchain technology operations. Additionally, I successfully integrated APIs from other projects, enhancing the functionality of our product.\n\nWork with React Context.',
