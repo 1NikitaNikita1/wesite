@@ -236,6 +236,9 @@ const ScSkillsSection = styled.div.withConfig({
         .headline {
             max-width: 340px;
             padding: 24px 0 0 0;
+            overflow: hidden;
+            border-radius: 16px;
+            max-height: 180px;
         }
         .list-wrap {
             flex: 0 0 50%;
@@ -248,6 +251,14 @@ const ScSkillsSection = styled.div.withConfig({
             & > * {
                 flex: 0 0 100% !important;
                 max-width: 100% !important;
+            }
+        }
+        ${ScCarousel} {
+            &:first-child {
+                rotate: 13deg;
+            }
+            &:last-child {
+                rotate: -13deg;
             }
         }
     }
