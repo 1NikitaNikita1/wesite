@@ -249,6 +249,7 @@ const ScSkillsSection = styled.div.withConfig({
             display: inline-block;
             padding: 0 16px;
             opacity: 1 !important;
+            box-sizing: border-box;
 
             & > * {
                 flex: 0 0 100% !important;

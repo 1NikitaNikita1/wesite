@@ -81,4 +81,11 @@ const ScList = styled.ul.withConfig({
     @media (max-width: 767px) {
         margin-bottom: 16px;
     }
+
+    @media (max-width: 390px) {
+        li {
+            white-space: nowrap;
+            gap: 8px;
+        }
+    }
 `;
