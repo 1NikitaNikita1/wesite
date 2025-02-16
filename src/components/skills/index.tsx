@@ -16,24 +16,26 @@ type TSkills = [TSkillList[], TSkillList[]];
 const SKILLS: TSkills = [
     [
         {
-            items: ['React', 'Vue', 'Ethers', 'TypeScript', 'JavaScript', 'i18n', 'Canvas'],
+            items: ['React', 'Vue', 'Next.js', 'Ethers', 'Web3.js', 'TypeScript', 'JavaScript'],
         },
         {
-            items: ['NodeJS', 'jQuery', 'Styled Components', 'Tailwind', 'Bootstrap', 'jQuery UI'],
+            items: ['Node.js', 'Express.js', 'NestJS', 'Styled Components', 'Tailwind', 'Bootstrap'],
         },
-        { items: ['REST/JSON/SOAP', 'Keyframes', 'Context API', 'Zustand', 'Redux'] },
+        {
+            items: ['REST/JSON/SOAP', 'GraphQL', 'Context API', 'Zustand', 'Redux', 'RxJS'],
+        },
     ],
     [
         {
-            items: ['Git / Gitlab', 'Heroku', 'Aws', 'Postman'],
+            items: ['Git', 'Docker', 'Postman', 'Vercel', 'AWS'],
             marker: Marker.yellow,
         },
         {
-            items: ['Strapi', 'Contentful', 'Evolution'],
+            items: ['Figma', 'Framer', 'Lottie', 'Adobe Photoshop', 'Jira'],
             marker: Marker.yellow,
         },
         {
-            items: ['Adobe', 'Figma', 'Framer', 'etc.'],
+            items: ['Strapi', 'Contentful', 'Sanity', 'WordPress'],
             marker: Marker.yellow,
         },
     ],

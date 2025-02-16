@@ -44,6 +44,7 @@ const ScGlowWrapper = styled.div`
         margin-top: -25vw;
         animation: ${glow} 3s ease-in-out infinite alternate;
         filter: blur(50px);
+        z-index: -1;
 
         &:first-child {
             left: -13vw;

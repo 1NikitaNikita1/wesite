@@ -63,6 +63,7 @@ const ScCoverLetter = styled.div.withConfig({
     border-radius: 0 0 8px 8px;
     overflow: hidden;
     margin-bottom: 80px;
+    padding-top: 16px;
     transition: ease 0.5s;
     opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
     scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.7)};
@@ -75,7 +76,8 @@ const ScCoverLetter = styled.div.withConfig({
         background: var(--background-secondary);
         font-size: 22px;
         line-height: 150%;
-        padding-bottom: 80px;
+        padding-bottom: 32px;
+        padding-top: 32px;
     }
     .cm-line:nth-child(2) {
         color: #32aa57;
@@ -84,14 +86,14 @@ const ScCoverLetter = styled.div.withConfig({
         padding-left: 24px;
     }
     .cm-activeLine {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0);
     }
     .cm-gutter {
         width: 38px;
         box-sizing: border-box;
     }
     .cm-activeLineGutter {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0);
     }
     .cm-gutters {
         border: none;
