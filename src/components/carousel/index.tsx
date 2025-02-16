@@ -55,7 +55,6 @@ export const Carousel: FC<{ direction?: CarouselDirection; speed?: number }> = (
                             backgroundSize: '100% 100%',
                             width,
                             height,
-                            margin: '0 24px',
                         }}
                     />
                 ))}
@@ -70,4 +69,14 @@ export const ScCarousel = styled.div`
     display: flex;
     align-items: center;
     background: #282c34;
+
+    .slide {
+        margin: 0 24px;
+    }
+
+    @media (max-width: 577px) {
+        .slide {
+            margin: 0 12px;
+        }
+    }
 `;
