@@ -32,3 +32,31 @@ h3 {
   font-size: 80px;
   margin: 0 0 10px;
 }
+
+@media (max-width:991px) {
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 46px;
+  }
+
+  h3 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 577px) {
+  h1 {
+    font-size: 46px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 38px;
+  }
+}

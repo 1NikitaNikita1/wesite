@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { forwardRef, LegacyRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-export const Tag: FC<{ children?: ReactNode }> = ({ children }) => {
-    return <ScTag>{children}</ScTag>;
-};
+export const Tag = forwardRef((props: { children?: ReactNode }, ref: LegacyRef<HTMLDivElement>) => {
+    return <ScTag ref={ref}>{props.children}</ScTag>;
+});
 
 export const ScTag = styled.div`
     display: flex;
@@ -18,4 +18,10 @@ export const ScTag = styled.div`
     font-size: 24px;
     font-weight: 500;
     color: #fff;
+
+    @media (max-width: 991px) {
+        font-size: 18px;
+        padding: 0 16px;
+        height: 42px;
+    }
 `;

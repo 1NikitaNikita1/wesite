@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { ScTag, Tag } from '../tag';
 import styled from 'styled-components';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 export type TCase = {
     start: string;
@@ -11,34 +12,40 @@ export type TCase = {
 };
 
 export const Case: FC<TCase> = ({ start, end, title, description, location }) => {
+    const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
+
     return (
-        <ScCase>
-            <Tag>{end}</Tag>
-            <div className='box'>
-                <div className='date'>
-                    {start} — {end}
+        <ScCaseWrap ref={targetRef}>
+            <ScCase isIntersecting={isIntersecting}>
+                <Tag>{end}</Tag>
+                <div className='box'>
+                    <div className='date'>
+                        {start} — {end}
+                    </div>
+                    <div className='title'>{title}</div>
+                    <div className='description'>{description}</div>
+                    <div className='location'>{location}</div>
                 </div>
-                <div className='title'>{title}</div>
-                <div className='description'>{description}</div>
-                <div className='location'>{location}</div>
-            </div>
-            <Tag>{start}</Tag>
-            <svg width='1' height='164' viewBox='0 0 1 164' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <line
-                    x1='0.5'
-                    y1='0.5'
-                    x2='0.500066'
-                    y2='164'
-                    stroke='#404C62'
-                    strokeLinecap='round'
-                    strokeDasharray='4 6'
-                />
-            </svg>
-        </ScCase>
+                <Tag>{start}</Tag>
+                <svg width='1' height='164' viewBox='0 0 1 164' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <line
+                        x1='0.5'
+                        y1='0.5'
+                        x2='0.500066'
+                        y2='164'
+                        stroke='#404C62'
+                        strokeLinecap='round'
+                        strokeDasharray='4 6'
+                    />
+                </svg>
+            </ScCase>
+        </ScCaseWrap>
     );
 };
 
-const ScCase = styled.div`
+const ScCase = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop),
+})<{ isIntersecting: boolean }>`
     max-width: 570px;
     position: relative;
     margin-inline: auto;
@@ -47,11 +54,18 @@ const ScCase = styled.div`
     align-items: center;
     gap: 18px;
     padding-bottom: 68px;
+    transition-delay: 1s;
+    transition: ease 0.5s;
+    opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
+    scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.6)};
 
     svg {
         position: absolute;
         bottom: -46px;
         z-index: -1;
+        transition: 2s;
+
+        transform-origin: bottom;
     }
 
     .box {
@@ -62,6 +76,7 @@ const ScCase = styled.div`
         align-items: center;
         text-align: center;
         padding: 20px;
+        position: relative;
     }
 
     .date {
@@ -102,23 +117,48 @@ const ScCase = styled.div`
         box-shadow: 0px 0px 30px 0px rgba(8, 14, 23, 0.5);
     }
 
-    &:last-child{
-        svg{
-            bottom: 0;
-        }
-        &:after{
-            bottom: 0;
-        }
-    }
-
-    &:after{
+    &:after {
         position: absolute;
         content: '';
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background: #1F2227;
-        border: 1px solid #404C62;
-        bottom: 24px;
+        background: #1f2227;
+        border: 1px solid #404c62;
+        bottom: ${({ isIntersecting }) => (isIntersecting ? '24px' : '-54px')};
+        transition: ease 1s;
+        opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.5)};
+    }
+    @media (max-width: 577px) {
+        max-width: 340px;
+        padding-bottom: 32px;
+
+        .title {
+            font-size: 21px;
+        }
+
+        &::after {
+            bottom: ${({ isIntersecting }) => (isIntersecting ? '6px' : '-24px')};
+            scale: 0.7;
+            transition: 0.2s;
+        }
+    }
+`;
+
+const ScCaseWrap = styled.div`
+    &:last-child {
+        ${ScCase} {
+            svg {
+                bottom: 0;
+            }
+            &:after {
+                bottom: 0 !important;
+            }
+            @media (max-width: 577px) {
+                svg {
+                    bottom: 5px;
+                }
+            }
+        }
     }
 `;

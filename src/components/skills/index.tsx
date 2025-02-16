@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Heading } from '../heading';
 import { Carousel, CarouselDirection, ScCarousel } from '../carousel';
 import { List, Marker } from '../list';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+import { ScreenType, useScreenType } from '../../hooks/useScreenType';
 
 type TSkillList = {
     items: string[];
@@ -38,34 +40,72 @@ const SKILLS: TSkills = [
 ];
 
 export const SkillsSection: FC = () => {
+    const [targetRef, isIntersecting] = useIntersectionObserver();
+    const [skillsRef, isSkillsIntersecting] = useIntersectionObserver();
+
+    const screenType = useScreenType();
+
     return (
-        <ScSkillsSection>
-            <div className='headline'>
-                <div className='buttons-plug'>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <div ref={targetRef}>
+            <ScSkillsSection
+                isMobile={screenType === ScreenType.mobile_portrait}
+                isIntersecting={isIntersecting}
+                isSkillsIntersecting={isSkillsIntersecting}
+            >
+                <div className='headline'>
+                    <div className='buttons-plug'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <Heading tag='Skills' title={'What else can I do?'} />
                 </div>
-                <Heading tag='Skills' title={'What else can I do?'} />
-            </div>
-            <div className='carousel-wrap'>
-                <Carousel />
-                <Carousel direction={CarouselDirection.right} />
-            </div>
-            {SKILLS.map((row, row_index) => (
-                <div className='list-wrap' key={row_index}>
-                    {row.map(({ items, marker }, column_index) => (
-                        <List data={items} marker={marker} key={column_index} />
-                    ))}
+                <div className='carousel-wrap'>
+                    <Carousel speed={screenType === ScreenType.mobile_portrait ? 50 : 15} />
+                    <Carousel
+                        speed={screenType === ScreenType.mobile_portrait ? 50 : 15}
+                        direction={CarouselDirection.right}
+                    />
                 </div>
-            ))}
-        </ScSkillsSection>
+                {screenType === ScreenType.mobile_portrait ? (
+                    SKILLS.map((row, row_index, rows) => {
+                        const _row = row.flatMap(({ items }) => items);
+                        return (
+                            <div className='list-wrap' key={row_index}>
+                                <List data={_row} marker={row_index === 1 ? Marker.yellow : Marker.blue} />
+                            </div>
+                        );
+                    })
+                ) : (
+                    <div ref={skillsRef}>
+                        {SKILLS.map((row, row_index) => (
+                            <div className='list-wrap' key={row_index}>
+                                {row.map(({ items, marker }, column_index) => (
+                                    <List data={items} marker={marker} key={column_index} />
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </ScSkillsSection>
+        </div>
     );
 };
 
-const ScSkillsSection = styled.div`
+interface ScSkillSectionProps {
+    isIntersecting: boolean;
+    isSkillsIntersecting: boolean;
+    isMobile: boolean;
+}
+
+const ScSkillsSection = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['isSkillsIntersecting', 'isIntersecting', 'isMobile'].includes(prop),
+})<ScSkillSectionProps>`
     position: relative;
     overflow: hidden;
+    /* scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.7)}; */
+    opacity: ${({ isIntersecting, isMobile }) => (!isMobile ? (isIntersecting ? 1 : 0) : 1)};
+    transition: all 0.2s ease;
     .headline {
         max-width: 1040px;
         margin-inline: auto;
@@ -123,6 +163,8 @@ const ScSkillsSection = styled.div`
         flex-wrap: wrap;
         max-width: 990px;
         margin-inline: auto;
+        opacity: ${({ isSkillsIntersecting }) => (isSkillsIntersecting ? 1 : 0)};
+        transition: all 0.2s;
 
         & > * {
             &:first-child {
@@ -149,7 +191,7 @@ const ScSkillsSection = styled.div`
         &:first-child {
             background: #21242a;
             rotate: 6deg;
-            z-index: 1;
+            z-index: -1;
             .slide {
                 opacity: 0.2;
                 /* scale: -1 1; */
@@ -158,6 +200,55 @@ const ScSkillsSection = styled.div`
         &:last-child {
             rotate: -6deg;
             z-index: 3;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .headline {
+            max-width: 650px;
+        }
+
+        .list-wrap {
+            max-width: 650px;
+
+            & > * {
+                &:first-child {
+                    flex: 0 0 146px;
+                    max-width: 146px;
+                }
+                &:nth-child(2) {
+                    flex: 0 0 182px;
+                    max-width: 182px;
+                }
+                &:last-child {
+                    flex: 0 0 163px;
+                    max-width: 163px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .carousel-wrap {
+            margin-top: -32px;
+            margin-bottom: 164px;
+        }
+        .headline {
+            max-width: 340px;
+            padding: 24px 0 0 0;
+        }
+        .list-wrap {
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin: 0;
+            display: inline-block;
+            padding: 0 16px;
+            opacity: 1 !important;
+
+            & > * {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
         }
     }
 `;

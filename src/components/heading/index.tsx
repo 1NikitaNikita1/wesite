@@ -59,4 +59,16 @@ const ScHeading = styled.div`
         max-width: 820px;
         margin-inline: auto;
     }
+
+    @media (max-width: 991px) {
+        margin: 32px 0 24px;
+        gap: 8px;
+    }
+
+    @media (max-width: 577px) {
+        p {
+            max-width: 360px;
+            font-size: 16px;
+        }
+    }
 `;
