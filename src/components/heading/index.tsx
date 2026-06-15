@@ -56,7 +56,7 @@ const ScHeading = styled.div`
         font-size: 22px;
         line-height: 150%;
         text-align: center;
-        max-width: 820px;
+        max-width: 577px;
         margin-inline: auto;
     }
 
