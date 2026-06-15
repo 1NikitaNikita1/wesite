@@ -8,8 +8,7 @@ export const Header: FC = () => {
     return (
         <ScHeader ref={ref}>
             <Heading type={HType.h1} title='Nikita Nikita' tag='Front end Developer'>
-                I work effectively in Agile development environments, ensuring timely delivery of projects while
-                maintaining high-quality standards.
+                Focused on delivering scalable and maintainable frontend solutions for product teams.
             </Heading>
         </ScHeader>
     );
