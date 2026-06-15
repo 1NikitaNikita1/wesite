@@ -7,9 +7,9 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import icon from '../../assets/js-icon.svg';
 
-const COVER_LETTER = `As a Front-end Developer, I have extensive experience with Vue.js, Nuxt.js, React, Next.js, and TypeScript. I’ve worked in product teams on long-term projects and Web3 startups, focusing on performance, scalability, and blockchain integrations. My expertise includes building maintainable UI architectures using Sass, Less, BEM, and styled-components.
+const COVER_LETTER = `As a Frontend Engineer, I build product-focused web applications using React, Next.js, Vue, Nuxt, and TypeScript. I have experience working in product teams and Web3 environments, where I contribute to frontend architecture, API integration, and the development of scalable and maintainable UI systems. My focus is on turning product requirements into reliable, production-ready features.
 //
-I thrive in Agile environments, collaborating with designers and backend developers to ensure seamless user experiences. With a strong focus on responsive design, cross-browser compatibility, and performance optimization, I consistently deliver high-quality solutions that meet business and user needs.`;
+I collaborate closely with designers and backend engineers in Agile teams to deliver consistent user experiences. I pay strong attention to performance, accessibility, and responsive design, ensuring that applications are fast, stable, and aligned with both business and user needs.`;
 
 export const CoverLetter: FC = () => {
     const [targetRef, isIntersecting] = useIntersectionObserver();
