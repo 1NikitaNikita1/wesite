@@ -7,35 +7,45 @@ const EXPERIENCE: TCase[] = [
     {
         start: '06/2023',
         end: 'Present',
-        title: 'Web3 Developer at Claimr.io',
+        title: 'Frontend Developer at Claimr.io',
         description:
-            'The main focus of my work involved developing user interfaces and web applications using React.js and Typescript. I also actively interacted with Ethers.js to facilitate blockchain technology operations. Additionally, I successfully integrated APIs from other projects, enhancing the functionality of our product.\n\nWork with React Context.',
+            'Develop and maintain product interfaces and web applications using React.js and TypeScript.\n\n' +
+            'Responsible for development and support of 3 core product entities, including client applications, admin panels, and internal API libraries.\n\n' +
+            'Built reusable frontend components, integrated external APIs, and worked on application architecture and state management.\n\n' +
+            'Developed and customized client-side solutions to support integration with different frameworks and technology stacks.\n\n' +
+            'Worked with Ethers.js and Web3 technologies to implement blockchain-related functionality.',
         location: 'Kyiv',
     },
     {
-        start: '09/2022',
-        end: '04/2023',
-        title: 'Front end Developer at Getwin',
-        description:
-            'Develop user interfaces and web applications using React.js, JavaScript, HTML/CSS/Sass (Styled Components), and Typescript. \n\nWork with React Context.',
-        location: 'Kyiv - Remote',
-    },
-    {
-        start: '08/2021',
-        end: '09/2022',
-        title: 'Front end Developer at Graviti',
-        description:
-            'Developed user interfaces and web applications using React.js, JavaScript, HTML/CSS/Sass\n\n(Styled Components) and Typescript. Worked with Node.js and React.js',
-        location: 'Kyiv',
-    },
-    {
-        start: '09/2017',
-        end: '09/2021',
-        title: 'HTML coder at Freelance',
-        description:
-            'I designed and developed user interfaces for websites using HTML/CSS, jQuery, and JavaScript, as well as creating LPs, online stores, and admin panels. I also designed and adapted banners and website elements to enhance the overall user experience.',
-        location: 'Remote',
-    },
+    start: '09/2022',
+    end: '04/2023',
+    title: 'Frontend Developer at Getwin',
+    description:
+        'Developed and maintained responsive web applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
+        'Created reusable UI components, implemented frontend logic, and worked with application state management using React Context API.\n\n' +
+        'Collaborated with the team to improve product functionality and user experience.',
+    location: 'Kyiv - Remote',
+},
+{
+    start: '08/2021',
+    end: '09/2022',
+    title: 'Frontend Developer at Graviti',
+    description:
+        'Built and optimized frontend applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
+        'Developed reusable components, integrated frontend features, and worked with Node.js for backend-related tasks.\n\n' +
+        'Implemented responsive layouts and improved existing user interfaces.',
+    location: 'Kyiv',
+},
+{
+    start: '09/2017',
+    end: '09/2021',
+    title: 'Frontend Developer / Freelancer',
+    description:
+        'Developed websites, landing pages, online stores, and admin panels using HTML, CSS, JavaScript, and jQuery.\n\n' +
+        'Converted designs into responsive web layouts and adapted interfaces for different devices.\n\n' +
+        'Created and optimized website assets, banners, and UI elements to improve visual consistency and user experience.',
+    location: 'Remote',
+}
 ];
 
 export const Experience: FC = () => {
