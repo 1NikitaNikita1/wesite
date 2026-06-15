@@ -16,26 +16,74 @@ type TSkills = [TSkillList[], TSkillList[]];
 const SKILLS: TSkills = [
     [
         {
-            items: ['React', 'Vue', 'Next.js', 'Ethers', 'Web3.js', 'TypeScript', 'JavaScript'],
+            items: [
+                'React',
+                'Vue',
+                'Next.js',
+                'TypeScript',
+                'JavaScript',
+                'Ethers.js',
+                'Web3.js',
+                'Architecture',
+            ],
         },
         {
-            items: ['Node.js', 'Express.js', 'NestJS', 'Styled Components', 'Tailwind', 'Bootstrap'],
+            items: [
+                'Node.js',
+                'Express.js',
+                'NestJS',
+                'REST',
+                'GraphQL',
+                'Swagger',
+                'Microservices',
+                'Auth',
+            ],
         },
         {
-            items: ['REST/JSON/SOAP', 'GraphQL', 'Context API', 'Zustand', 'Redux', 'RxJS'],
+            items: [
+                'Context',
+                'Redux',
+                'Zustand',
+                'RxJS',
+                'ReactQuery',
+                'Axios',
+                'Design',
+            ],
         },
     ],
     [
         {
-            items: ['Git', 'Docker', 'Postman', 'Vercel', 'AWS'],
+            items: [
+                'Git',
+                'Docker',
+                'Postman',
+                'Vercel',
+                'AWS',
+                'CI/CD',
+                'Actions',
+                'Deploy',
+            ],
             marker: Marker.yellow,
         },
         {
-            items: ['Figma', 'Framer', 'Lottie', 'Adobe Photoshop', 'Jira'],
+            items: [
+                'Figma',
+                'Jira',
+                'Framer',
+                'Lottie',
+                'Photoshop',
+                'Workflow',
+            ],
             marker: Marker.yellow,
         },
         {
-            items: ['Strapi', 'Contentful', 'Sanity', 'WordPress'],
+            items: [
+                'Strapi',
+                'Contentful',
+                'Sanity',
+                'WordPress',
+                'Headless',
+            ],
             marker: Marker.yellow,
         },
     ],
