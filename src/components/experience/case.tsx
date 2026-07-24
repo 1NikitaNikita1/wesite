@@ -9,9 +9,10 @@ export type TCase = {
     title: string;
     description: string;
     location: string;
+    shortDescription: string;
 };
 
-export const Case: FC<TCase> = ({ start, end, title, description, location }) => {
+export const Case: FC<TCase> = ({ start, end, title, description, shortDescription, location }) => {
     const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
 
     return (
@@ -23,7 +24,7 @@ export const Case: FC<TCase> = ({ start, end, title, description, location }) =>
                         {start} — {end}
                     </div>
                     <div className='title'>{title}</div>
-                    <div className='description'>{description}</div>
+                    <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
                 </div>
                 <Tag>{start}</Tag>
@@ -44,7 +45,7 @@ export const Case: FC<TCase> = ({ start, end, title, description, location }) =>
 };
 
 const ScCase = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop),
+    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop)
 })<{ isIntersecting: boolean }>`
     max-width: 570px;
     position: relative;
@@ -105,6 +106,7 @@ const ScCase = styled.div.withConfig({
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 10px;
+        white-space: pre-line;
     }
 
     ${ScTag} {

@@ -9,7 +9,7 @@ import { useCvTracker } from '../hooks/useCvTracker';
 
 export const Page: FC = () => {
     useCvTracker();
-    
+
     return (
         <GlowWrapper>
             <Header />
