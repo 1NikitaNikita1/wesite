@@ -8,7 +8,7 @@ export const Header: FC = () => {
     return (
         <ScHeader ref={ref}>
             <Heading type={HType.h1} title='Nikita Yudakov' tag='Web Developer'>
-                Focused on delivering scalable and maintainable frontend solutions for product teams.
+                Focused on delivering scalable and maintainable web solutions.
             </Heading>
         </ScHeader>
     );
