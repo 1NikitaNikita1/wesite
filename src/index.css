@@ -14,8 +14,13 @@
 body {
   margin: 0;
   font-family: 'Switzer', sans-serif;
-  background: #1F2227;
+  background-color: #1F2227;
   color: #fff;
+}
+
+body:has([data-component-theme="light"]) {
+  background-color: #fff;
+  color: #000;
 }
 
 h1 {

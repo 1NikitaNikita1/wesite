@@ -7,7 +7,7 @@ import { Header } from './header';
 import { GlowWrapper } from './glowWrapper';
 import { useCvTracker } from '../hooks/useCvTracker';
 
-export const Page: FC = () => {
+export const Main: FC = () => {
     useCvTracker();
 
     return (

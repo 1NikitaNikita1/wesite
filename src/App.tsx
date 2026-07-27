@@ -1,7 +1,7 @@
-import { Page } from './components/page';
+import { AppRouting } from './components/appRouting';
 
 function App() {
-    return <Page />;
+    return <AppRouting />;
 }
 
 export default App;
