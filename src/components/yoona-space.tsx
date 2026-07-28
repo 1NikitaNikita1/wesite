@@ -9,6 +9,7 @@ import { ScreenType, useScreenType } from '../hooks/useScreenType';
 import { TSkills } from './skills';
 import { List, Marker } from './list';
 import { Contacts, ScContacts } from './contacts';
+import { useCvTracker } from '../hooks/useCvTracker';
 // import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const CV_MAIN_TEXT = `Yoona Space is a SaaS platform for custom data analytics and marketing campaign gamification through interactive leaderboards. 
@@ -48,7 +49,8 @@ const SKILLS: TSkills = [
 export const YoonaSpace: FC = () => {
     const header_ref = useParallax({ speed: 0.15, initialOffset: 0 });
     const screenType = useScreenType();
-
+    useCvTracker('Yoona space');
+    
     return (
         <ScYoonaSpace data-component-theme='light'>
             <GlowWrapper colors={['rgba(220, 82, 134,.4)', 'rgba(107, 74, 255,.4)']}>
@@ -185,13 +187,13 @@ const ScYoonaSpace = styled.div`
         z-index: 3;
     }
     ${ScContacts} {
-        .contacts-wrap .label{
+        .contacts-wrap .label {
             color: #000;
         }
         .contacts-wrap a {
             color: #000;
         }
-        &::after{
+        &::after {
             content: none;
         }
     }

@@ -19,14 +19,23 @@ export default async function handler(req: Request): Promise<Response> {
 
     const userAgent = req.headers.get('user-agent') || 'unknown';
 
+    let caseName: string | undefined;
+
+    try {
+        const body = await req.json();
+        caseName = body?.case;
+    } catch {}
+
     let city = 'unknown';
     let country = 'unknown';
     let region = 'unknown';
 
     try {
         const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
+
         if (geoRes.ok) {
             const geo = await geoRes.json();
+
             city = geo.city || 'unknown';
             region = geo.region || 'unknown';
             country = geo.country_name || 'unknown';
@@ -34,6 +43,7 @@ export default async function handler(req: Request): Promise<Response> {
     } catch {}
 
     const now = new Date();
+
     const kyivTime = now.toLocaleString('uk-UA', {
         timeZone: 'Europe/Kyiv',
         dateStyle: 'medium',
@@ -42,6 +52,7 @@ export default async function handler(req: Request): Promise<Response> {
 
     const text =
         `📄 CV переглянуто\n\n` +
+        (caseName ? `🎯 ЦА: ${caseName}\n` : '') +
         `🕐 Час: ${kyivTime} (Kyiv)\n` +
         `🌍 Місто: ${city}, ${region}, ${country}\n` +
         `📡 IP: ${ip}\n` +
@@ -50,7 +61,9 @@ export default async function handler(req: Request): Promise<Response> {
     try {
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 chat_id: chatId,
                 text

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export function useCvTracker() {
+export function useCvTracker(_case?: string) {
     const sent = useRef(false);
 
     useEffect(() => {
@@ -10,6 +10,11 @@ export function useCvTracker() {
         sent.current = true;
         sessionStorage.setItem('cv_tracked', '1');
 
-        fetch('/api/track', { method: 'POST' }).catch(() => {});
-    }, []);
+        fetch('/api/track', {
+            method: 'POST',
+            body: JSON.stringify({
+                case: _case
+            })
+        }).catch(() => {});
+    }, [_case]);
 }
