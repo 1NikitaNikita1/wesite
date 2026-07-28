@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 export function useCvTracker(_case?: string) {
     const sent = useRef(false);
 
+    console.log('case:', _case);
+
     useEffect(() => {
         if (sent.current) return;
         if (sessionStorage.getItem('cv_tracked') === '1') return;
