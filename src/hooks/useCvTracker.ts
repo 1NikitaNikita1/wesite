@@ -13,7 +13,7 @@ export function useCvTracker(_case?: string) {
         fetch('/api/track', {
             method: 'POST',
             body: JSON.stringify({
-                case: _case
+                case: _case || 'Main page'
             })
         }).catch(() => {});
     }, [_case]);
