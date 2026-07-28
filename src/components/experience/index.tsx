@@ -28,7 +28,7 @@ const EXPERIENCE: TCase[] = [
     {
         start: '06/2023',
         end: '06/2026',
-        title: 'Frontend Developer at Claimr.io',
+        title: 'Web Developer at Claimr.io',
         shortDescription:
             'Developed and maintained production applications across client-facing products, admin panels, and internal API libraries, building frontend architecture and reusable UI systems with React.js, TypeScript, and modern state management.',
         description:
