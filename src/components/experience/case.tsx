@@ -12,7 +12,7 @@ export type TCase = {
     shortDescription: string;
     link?: {
         text: string;
-        to: string;
+        to?: string;
     };
 };
 
@@ -20,7 +20,7 @@ export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, loc
     const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
 
     const handle_navigate = useCallback(() => {
-        if (!link) return;
+        if (!link || !link.to) return;
         window.open(link.to, '_blank');
     }, [link]);
 
@@ -35,7 +35,11 @@ export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, loc
                     <div className='title'>{title}</div>
                     <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
-                    {link && <button onClick={handle_navigate}>{link.text}</button>}
+                    {link && (
+                        <button data-is-empty={Number(!link.to)} onClick={handle_navigate}>
+                            {link.to ? link.text : 'Page in progress'}
+                        </button>
+                    )}
                 </div>
                 <Tag>{start}</Tag>
                 <svg width='1' height='164' viewBox='0 0 1 164' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -87,6 +91,13 @@ const ScCase = styled.div.withConfig({
         &:hover {
             background: #fff;
             color: #000;
+        }
+
+        &[data-is-empty='1'] {
+            background: transparent;
+            border: 2px dashed #fff3;
+            color: #fff3;
+            pointer-events: none;
         }
     }
     svg {

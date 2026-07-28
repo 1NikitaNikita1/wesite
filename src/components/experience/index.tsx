@@ -20,7 +20,7 @@ const EXPERIENCE: TCase[] = [
             'Designed and implemented the full client integration layer, including Open APIs, iframe embeds, authentication, data processing, and custom integrations with external products and technology stacks.\n\n' +
             'Built and maintained products used by up to 6 active clients across both platforms, processing data and interactions for more than 3,000 users.',
         location: 'Kyiv',
-        link:{
+        link: {
             to: '/yoona-space',
             text: 'Dive in'
         }
@@ -38,7 +38,10 @@ const EXPERIENCE: TCase[] = [
             'Integrated external APIs and Node.js serverless functions (Vercel), working with a Supabase database.\n\n' +
             'Implemented blockchain-related functionality using Ethers.js and Web3 technologies.\n\n' +
             'Customized client-side solutions to support integration with different client frameworks and technology stacks.',
-        location: 'Kyiv'
+        location: 'Kyiv',
+        link: {
+            text: 'Dive in'
+        }
     },
     {
         start: '09/2022',
@@ -50,7 +53,10 @@ const EXPERIENCE: TCase[] = [
             'Developed and maintained responsive web applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
             'Created reusable UI components, implemented frontend logic, and managed application state using React Context API.\n\n' +
             'Collaborated with the team to improve product functionality and user experience.',
-        location: 'Kyiv - Remote'
+        location: 'Kyiv - Remote',
+        link: {
+            text: 'Dive in'
+        }
     },
     {
         start: '08/2021',
@@ -62,7 +68,10 @@ const EXPERIENCE: TCase[] = [
             'Built and optimized frontend applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
             'Developed reusable components, integrated new features, and worked with Node.js for backend-related tasks.\n\n' +
             'Implemented responsive layouts and improved existing user interfaces.',
-        location: 'Kyiv'
+        location: 'Kyiv',
+        link: {
+            text: 'Dive in'
+        }
     },
     {
         start: '09/2017',
