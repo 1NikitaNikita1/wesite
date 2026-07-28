@@ -3,13 +3,17 @@ import styled, { keyframes } from 'styled-components';
 import { useScreenType } from '../../hooks/useScreenType';
 import { useParallax } from '../../hooks/useParallax';
 
-export const GlowWrapper: FC<{ children: ReactNode }> = ({ children }) => {
+interface GlowWrapperProps extends ScGlowWrapperProps {
+    children: ReactNode;
+}
+
+export const GlowWrapper: FC<GlowWrapperProps> = ({ children, colors = ['#2b323f', '#2b323f'] }) => {
     const screen = useScreenType();
     const glow_left_ref = useParallax({ speed: 0.11 });
     const glow_right_ref = useParallax({ speed: 0.1 });
 
     return (
-        <ScGlowWrapper key={screen}>
+        <ScGlowWrapper key={screen} colors={colors}>
             <div ref={glow_left_ref} className='glow' />
             {children}
             <div ref={glow_right_ref} className='glow' />
@@ -28,7 +32,11 @@ const glow = keyframes`
     }
 `;
 
-const ScGlowWrapper = styled.div`
+interface ScGlowWrapperProps {
+    colors?: [string, string];
+}
+
+export const ScGlowWrapper = styled.div<ScGlowWrapperProps>`
     position: relative;
     max-width: 100vw;
     overflow-x: hidden;
@@ -37,7 +45,6 @@ const ScGlowWrapper = styled.div`
         position: fixed;
         width: 25vw;
         aspect-ratio: 1/1;
-        background: #2b323f;
         border-radius: 50%;
         top: 50%;
         opacity: 0.5;
@@ -53,6 +60,12 @@ const ScGlowWrapper = styled.div`
             right: -15vw;
             margin-top: -15vw;
             animation: ${glow} 3s 0.5s ease-in-out infinite alternate;
+        }
+        &:first-child {
+            background: ${({ colors }) => (!!colors ? colors[0] : '#2b323f')};
+        }
+        &:last-child {
+            background: ${({ colors }) => (!!colors ? colors[1] : '#2b323f')};
         }
     }
 

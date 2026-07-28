@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { ScTag, Tag } from '../tag';
 import styled from 'styled-components';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
@@ -10,10 +10,19 @@ export type TCase = {
     description: string;
     location: string;
     shortDescription: string;
+    link?: {
+        text: string;
+        to: string;
+    };
 };
 
-export const Case: FC<TCase> = ({ start, end, title, description, shortDescription, location }) => {
+export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, location }) => {
     const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
+
+    const handle_navigate = useCallback(() => {
+        if (!link) return;
+        window.open(link.to, '_blank');
+    }, [link]);
 
     return (
         <ScCaseWrap ref={targetRef}>
@@ -26,6 +35,7 @@ export const Case: FC<TCase> = ({ start, end, title, description, shortDescripti
                     <div className='title'>{title}</div>
                     <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
+                    {link && <button onClick={handle_navigate}>{link.text}</button>}
                 </div>
                 <Tag>{start}</Tag>
                 <svg width='1' height='164' viewBox='0 0 1 164' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -59,7 +69,26 @@ const ScCase = styled.div.withConfig({
     transition: ease 0.5s;
     opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
     scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.5)};
-
+    button {
+        background: var(--color-accent);
+        color: #fff;
+        height: 38px;
+        padding: 0 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        font-weight: 600;
+        color: #000;
+        white-space: nowrap;
+        border: none;
+        margin-top: 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+            background: #fff;
+            color: #000;
+        }
+    }
     svg {
         position: absolute;
         z-index: -1;

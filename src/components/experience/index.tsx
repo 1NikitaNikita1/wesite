@@ -19,7 +19,11 @@ const EXPERIENCE: TCase[] = [
             'Integrated payment infrastructure, including Apple Pay, Google Pay, and other payment methods, enabling subscription-based access to the platform and its products.\n\n' +
             'Designed and implemented the full client integration layer, including Open APIs, iframe embeds, authentication, data processing, and custom integrations with external products and technology stacks.\n\n' +
             'Built and maintained products used by up to 6 active clients across both platforms, processing data and interactions for more than 3,000 users.',
-        location: 'Kyiv'
+        location: 'Kyiv',
+        link:{
+            to: '/yoona-space',
+            text: 'Dive in'
+        }
     },
     {
         start: '06/2023',

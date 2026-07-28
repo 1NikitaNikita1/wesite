@@ -7,7 +7,7 @@ export const Header: FC = () => {
     const ref = useParallax({ speed: 0.15, initialOffset: 0 });
     return (
         <ScHeader ref={ref}>
-            <Heading type={HType.h1} title='Nikita Yudakov' tag='Web Developer'>
+            <Heading type={HType.h1} title='Mykyta Yudakov' tag='Web Developer'>
                 Focused on delivering scalable and maintainable web solutions.
             </Heading>
         </ScHeader>

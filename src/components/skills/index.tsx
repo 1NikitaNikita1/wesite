@@ -6,12 +6,12 @@ import { List, Marker } from '../list';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { ScreenType, useScreenType } from '../../hooks/useScreenType';
 
-type TSkillList = {
+export type TSkillList = {
     items: string[];
     marker?: Marker;
 };
 
-type TSkills = [TSkillList[], TSkillList[]];
+export type TSkills = [TSkillList[], TSkillList[]];
 
 const SKILLS: TSkills = [
     [

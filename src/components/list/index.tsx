@@ -14,7 +14,7 @@ interface ListProps extends ScListProps {
 
 export const List: FC<ListProps> = ({ data, marker = Marker.blue }) => {
     return (
-        <ScList marker={marker}>
+        <ScList marker={marker} data-marker={marker}>
             {data.map((item, index) => (
                 <li key={index}>
                     <img src={star} alt='' className='marker' />
@@ -29,7 +29,7 @@ interface ScListProps {
     marker?: Marker;
 }
 
-const ScList = styled.ul.withConfig({
+export const ScList = styled.ul.withConfig({
     shouldForwardProp: (prop) => !['marker'].includes(prop),
 })<ScListProps>`
     box-sizing: border-box;

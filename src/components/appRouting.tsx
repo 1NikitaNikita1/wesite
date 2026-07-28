@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Main } from './page';
-// import { YoonaSpace } from './yoona-space';
+import { YoonaSpace } from './yoona-space';
 
 const router = createBrowserRouter([
     {
@@ -10,10 +10,10 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Main />
             },
-            // {
-            //     path: 'yoona-space',
-            //     element: <YoonaSpace />
-            // }
+            {
+                path: 'yoona-space',
+                element: <YoonaSpace />
+            }
         ]
     }
 ]);

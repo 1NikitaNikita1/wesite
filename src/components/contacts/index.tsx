@@ -19,7 +19,7 @@ export const Contacts: FC = () => {
                 </div>
                 <div className='item'>
                     <span className='label'>Email</span>
-                    <a href='mailto:work.nikita.00@gmail.com'>work.nikita.00@gmail.com</a>
+                    <a href='mailto:work.Mykyta.00@gmail.com'>work.Mykyta.00@gmail.com</a>
                 </div>
                 <div className='item'>
                     <span className='label'>Links</span>
@@ -32,7 +32,7 @@ export const Contacts: FC = () => {
     );
 };
 
-const ScContacts = styled.footer`
+export const ScContacts = styled.footer`
     position: relative;
     padding-bottom: 100px;
 

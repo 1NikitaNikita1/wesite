@@ -7,11 +7,17 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import icon from '../../assets/js-icon.svg';
 
-const COVER_LETTER = `As a Frontend Engineer, I build product-focused web applications using React, Next.js, Vue, Nuxt, and TypeScript. I have experience working in product teams and Web3 environments, where I contribute to frontend architecture, API integration, and the development of scalable and maintainable UI systems. My focus is on turning product requirements into reliable, production-ready features.
+const COVER_LETTER = `As a Web Engineer, I build product-focused web applications using React, Next.js, Vue, Nuxt, and TypeScript. I have experience working in product teams and Web3 environments, where I contribute to frontend architecture, API integration, and the development of scalable and maintainable UI systems. My focus is on turning product requirements into reliable, production-ready features.
 //
 I collaborate closely with designers and backend engineers in Agile teams to deliver consistent user experiences. I pay strong attention to performance, accessibility, and responsive design, ensuring that applications are fast, stable, and aligned with both business and user needs.`;
 
-export const CoverLetter: FC = () => {
+const TAG = 'Who am I';
+interface CoverLetterProps {
+    tag?: string;
+    body?: string;
+}
+
+export const CoverLetter: FC<CoverLetterProps> = ({ tag = TAG, body = COVER_LETTER }) => {
     const [targetRef, isIntersecting] = useIntersectionObserver();
 
     return (
@@ -19,12 +25,12 @@ export const CoverLetter: FC = () => {
             <ScCodeHeader>
                 <div className='tab'>
                     <img alt='' src={icon} />
-                    Who am I
+                    {tag}
                 </div>
             </ScCodeHeader>
             <CodeMirror
                 spellCheck
-                value={COVER_LETTER}
+                value={body}
                 readOnly={true}
                 extensions={[javascript(), EditorView.lineWrapping]}
                 editable={false}
@@ -34,7 +40,7 @@ export const CoverLetter: FC = () => {
     );
 };
 
-const ScCodeHeader = styled.div`
+export const ScCodeHeader = styled.div`
     background: #191919;
     height: 32px;
     border-radius: 8px 8px 0 0;
@@ -55,8 +61,8 @@ const ScCodeHeader = styled.div`
     }
 `;
 
-const ScCoverLetter = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop),
+export const ScCoverLetter = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['isIntersecting'].includes(prop)
 })<{ isIntersecting: boolean }>`
     max-width: 820px;
     margin-inline: auto;
