@@ -19,7 +19,6 @@ export default async function handler(req: Request): Promise<Response> {
 
     const userAgent = req.headers.get('user-agent') || 'unknown';
 
-
     let city = 'unknown';
     let country = 'unknown';
     let region = 'unknown';
@@ -44,24 +43,50 @@ export default async function handler(req: Request): Promise<Response> {
         timeStyle: 'medium'
     });
 
-    const text =
-        `📄 Book a Call\n\n` +
-        `🕐 Час: ${kyivTime} (Kyiv)\n` +
-        `🌍 Місто: ${city}, ${region}, ${country}\n` +
-        `📡 IP: ${ip}\n` +
-        `💻 UA: ${userAgent}`;
+    // Екрануємо спецсимволи, щоб не зламати HTML-теги в Rich Message
+    const esc = (s: string) =>
+        s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    const rows: [string, string][] = [
+        ['Час', `${kyivTime} (Kyiv)`],
+        ['Місто', city],
+        ['Регіон', region],
+        ['Країна', country],
+        ['IP', ip],
+        ['User-Agent', userAgent]
+    ];
+
+    const tableRows = rows
+        .map(
+            ([key, value]) =>
+                `<tr><th align="left">${esc(key)}</th><td>${esc(value)}</td></tr>`
+        )
+        .join('');
+
+    const html =
+        `<h3>📄 Book a Call</h3>` +
+        `<table bordered striped><caption>Заявка з сайту</caption>${tableRows}</table>`;
 
     try {
-        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        const res = await fetch(`https://api.telegram.org/bot${botToken}/sendRichMessage`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 chat_id: chatId,
-                text
+                rich_message: {
+                    html,
+                    skip_entity_detection: true
+                }
             })
         });
+
+        if (!res.ok) {
+            const errText = await res.text();
+            console.error('Telegram error:', errText);
+            return new Response('Failed to send', { status: 500 });
+        }
     } catch {
         return new Response('Failed to send', { status: 500 });
     }
