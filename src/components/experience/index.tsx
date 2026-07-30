@@ -7,111 +7,111 @@ export const EXPERIENCE: TCase[] = [
     {
         start: '01/2026',
         end: 'Present',
-        title: 'Founder & Full-Stack Developer \nat Yoona Space',
+        title: 'Founder & Full-Stack Developer\nat Yoona Space',
         shortDescription:
-            'Independently built and launched a SaaS platform for data analytics and marketing gamification, covering product design, architecture, frontend, backend, APIs, integrations, payments, and deployment. The platform serves up to 6 active clients and has processed data and interactions for 1,500+ users.',
+            'Independently designed, built, and launched Yoona Space, a SaaS platform for data analytics and marketing gamification. Led the entire product lifecycle, from architecture and development to infrastructure, payments, client integrations, and deployment, serving 6 active B2B clients and 1,500+ end users.',
         technologies: [
             'Architecture',
-            'Next.js',
-            'Node.js',
-            'Docker',
             'React',
+            'Next.js',
             'TypeScript',
+            'Node.js',
             'Supabase',
-            'CI/CD',
-            'Vite',
-            'JavaScript',
-            'sc-js',
-            'MUI',
-            'Next.js API Routes',
+            'PostgreSQL',
+            'Docker',
             'Prisma',
-            'REST',
-            'JWT',
-            'Bcrypt',
             'Zustand',
-            'Axios',
-            'React Router',
-            'Zod',
-            'Recharts',
-            'D3',
-            'Papaparse',
-            'Git',
-            'Vercel',
-            'Actions',
-            'Deploy',
+            'Styled Components',
+            'REST API',
+            'JWT',
+            'CI/CD',
+            'GitHub Actions',
             'Stripe',
             'LemonSqueezy',
-            'Postman',
-            'QR Code Styling',
-            'Workflow',
-            'Figma',
-            'Jira',
-            'Framer',
-            'Photoshop'
+            'Vercel'
         ],
         description:
-            'Designed and independently built Yoona Space end-to-end, a data analytics and marketing gamification platform consisting of two products: Yoona Charts and Yoona Leaderboards. Responsible for the entire product lifecycle, including product design, architecture, frontend, backend, APIs, third-party integrations, payments, legal setup, and deployment.\n\n' +
-            'Built the platform using React.js, Next.js, TypeScript, Node.js, Express.js, Supabase, PostgreSQL, Zustand, Styled Components, and Docker, with a focus on scalable and reusable product architecture.\n\n' +
-            'Developed Yoona Charts, a customizable data visualization platform with an Open API and iframe-based embedding, allowing clients to integrate interactive analytics and charts directly into their own products.\n\n' +
-            'Developed Yoona Leaderboards, a gamification platform where leaderboards can be populated through a Telegram bot or directly via the Open API. Built automated data processing and ranking logic to calculate and update leaderboard positions in real time.\n\n' +
-            'Built a Telegram-based engagement system for marketing campaigns, including user participation reminders, polls, point distribution, community interactions, and automated detection and filtering of suspicious activity and spam.\n\n' +
-            'Integrated payment infrastructure, including Apple Pay, Google Pay, and other payment methods, enabling subscription-based access to the platform and its products.\n\n' +
-            'Designed and implemented the full client integration layer, including Open APIs, iframe embeds, authentication, data processing, and custom integrations with external products and technology stacks.\n\n' +
-            'Built and maintained products used by up to 6 active clients across both platforms, processing data and interactions for more than 3,000 users.',
+            'Designed and built Yoona Space from scratch, defining the product architecture and delivering the complete SaaS platform independently.\n\n' +
+            'Developed Yoona Charts, an embeddable analytics platform with an Open API and iframe integration, allowing clients to integrate interactive dashboards into existing products.\n\n' +
+            'Developed Yoona Leaderboards, implementing automated ranking pipelines and real-time leaderboard updates through REST APIs and Telegram integrations.\n\n' +
+            'Built a Telegram-based automation system for marketing campaigns, including reminders, polls, point distribution, spam detection, and community engagement workflows.\n\n' +
+            'Designed and implemented the complete integration layer, including authentication, Open APIs, iframe embedding, data synchronization, and custom client integrations.\n\n' +
+            'Integrated subscription billing with Stripe, LemonSqueezy, Apple Pay, and Google Pay, enabling commercial SaaS distribution.\n\n' +
+            'Managed infrastructure, deployments, CI/CD pipelines, and production releases while supporting 6 active clients and processing data for more than +1,500 users.',
         location: 'Kyiv',
         link: {
             to: '/yoona-space',
             text: 'Dive in'
         }
     },
+
     {
         start: '06/2023',
         end: '06/2026',
-        title: 'Web Developer at Claimr.io',
+        title: 'Frontend Developer at Claimr.io',
         shortDescription:
-            'Developed and maintained production applications across client-facing products, admin panels, and internal API libraries, building frontend architecture and reusable UI systems with React.js, TypeScript, and modern state management.',
+            'Designed and developed production frontend solutions for client applications, admin panels, and shared internal libraries, building scalable architecture and reusable UI systems with React.js and TypeScript.',
         description:
-            'Developed and maintained product interfaces on React.js and TypeScript, working across 3 core product entities: client applications, admin panels, and internal API libraries.\n\n' +
-            'Built the frontend architecture from the ground up: Zustand for centralized state management, styled-components for the UI layer, and react-router-dom for routing.\n\n' +
-            'Built reusable components, including a drag-and-drop system (Kanban board) and custom UI elements decoupled from business logic via the store.\n\n' +
-            'Integrated external APIs and Node.js' +
-            'Implemented blockchain-related functionality using Ethers.js and Web3 technologies.\n\n' +
-            'Customized client-side solutions to support integration with different client frameworks and technology stacks.',
+            'Designed the frontend architecture for multiple production applications, introducing centralized state management with Zustand and a reusable UI layer based on styled-components.\n\n' +
+            'Developed reusable components and internal UI libraries, including a drag-and-drop engine powering Kanban-based workflows while keeping presentation separated from business logic.\n\n' +
+            'Integrated external APIs and internal Node.js services, implementing authentication, asynchronous data synchronization, and error handling.\n\n' +
+            'Implemented blockchain functionality using Ethers.js and Web3 technologies, enabling smart contract interactions and wallet-based features.\n\n' +
+            'Adapted frontend solutions for clients using different frameworks and technology stacks, simplifying product integration and customization.\n\n' +
+            'Participated in architecture discussions, feature implementation, code reviews, and continuous improvement of shared frontend infrastructure.',
         location: 'Kyiv',
         technologies: [
             'React.js',
             'TypeScript',
             'Zustand',
             'styled-components',
-            'Vue2/3',
-            'Pina',
-            'react-router-dom',
+            'React Router',
             'Node.js',
             'Ethers.js',
             'Web3',
+            'Vue.js',
             'GitHub Actions'
         ],
         link: {
             text: 'Dive in'
         }
     },
+
     {
         start: '09/2022',
         end: '04/2023',
         title: 'Frontend Developer at Getwin',
         shortDescription:
-            'Developed responsive React.js applications and reusable UI components, working with TypeScript, Styled Components, and React Context API to build and improve product functionality and user experience.',
+            'Developed production React applications and reusable UI components, implementing business features, responsive interfaces, and scalable frontend architecture using TypeScript and Styled Components.',
         description:
-            'Developed and maintained responsive web applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
-            'Created reusable UI components, implemented frontend logic, and managed application state using React Context API.\n\n' +
-            'Collaborated with the team to improve product functionality and user experience.',
+            'Developed new product functionality using React.js and TypeScript for customer-facing web applications.\n\n' +
+            'Built reusable UI components and application modules, improving consistency and maintainability across the project.\n\n' +
+            'Implemented client-side business logic and managed application state using React Context API.\n\n' +
+            'Collaborated with designers and backend developers to deliver new features and improve user experience.\n\n' +
+            'Maintained and optimized existing frontend codebase, fixing issues and improving application stability.',
         location: 'Kyiv - Remote',
+        technologies: ['React.js', 'TypeScript', 'Styled Components', 'Context API', 'Redux', 'REST API', 'Sass'],
+        link: {
+            text: 'Dive in'
+        }
+    },
+
+    {
+        start: '08/2021',
+        end: '09/2022',
+        title: 'Frontend Developer at Graviti',
+        shortDescription:
+            'Built and maintained React-based web applications, delivering new product features, reusable components, and responsive interfaces while contributing to backend-related development tasks.',
+        description:
+            'Developed responsive web applications using React.js, TypeScript, and Styled Components.\n\n' +
+            'Implemented reusable UI components and integrated new business features into existing products.\n\n' +
+            'Worked with REST APIs and participated in backend-related development using Node.js.\n\n' +
+            'Improved existing interfaces, fixed production issues, and optimized application performance.\n\n' +
+            'Collaborated with cross-functional teams throughout the feature delivery process.',
+        location: 'Kyiv',
         technologies: [
             'React.js',
             'TypeScript',
-            'JavaScript',
-            'HTML/CSS',
-            'Sass',
+            'Node.js',
             'Styled Components',
             'Context API',
             'Redux',
@@ -121,43 +121,18 @@ export const EXPERIENCE: TCase[] = [
             text: 'Dive in'
         }
     },
-    {
-        start: '08/2021',
-        end: '09/2022',
-        title: 'Frontend Developer at Graviti',
-        shortDescription:
-            'Built and optimized React.js applications with TypeScript, developing reusable components, integrating new features, and contributing to both frontend and Node.js backend-related tasks.',
-        description:
-            'Built and optimized frontend applications using React.js, TypeScript, JavaScript, HTML/CSS, Sass, and Styled Components.\n\n' +
-            'Developed reusable components, integrated new features, and worked with Node.js for backend-related tasks.\n\n' +
-            'Implemented responsive layouts and improved existing user interfaces.',
-        location: 'Kyiv',
-        link: {
-            text: 'Dive in'
-        },
-        technologies: [
-            'React.js',
-            'TypeScript',
-            'JavaScript',
-            'HTML/CSS',
-            'Sass',
-            'Styled Components',
-            'Node.js',
-            'Context API',
-            'Redux',
-            'REST API'
-        ]
-    },
+
     {
         start: '09/2017',
         end: '09/2021',
         title: 'Frontend Developer / Freelancer',
         shortDescription:
-            'Developed websites, landing pages, online stores, and admin panels, transforming designs into responsive interfaces and creating custom web solutions for different clients and use cases.',
+            'Delivered custom websites, landing pages, online stores, and administrative systems for multiple clients, transforming UI designs into responsive production-ready web applications.',
         description:
-            'Developed websites, landing pages, online stores, and admin panels using HTML, CSS, JavaScript, and jQuery.\n\n' +
-            'Converted designs into responsive web layouts and adapted interfaces for different devices.\n\n' +
-            'Created and optimized website assets, banners, and UI elements to improve visual consistency and user experience.',
+            'Developed websites, landing pages, e-commerce stores, and administration panels using HTML, CSS, JavaScript, jQuery, WordPress, and Shopify.\n\n' +
+            'Converted Figma and Photoshop designs into responsive, cross-browser compatible interfaces.\n\n' +
+            'Customized themes, implemented client-specific functionality, and optimized website performance.\n\n' +
+            'Worked directly with clients, gathering requirements, estimating work, and delivering complete web solutions.',
         location: 'Remote',
         technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'WordPress', 'Shopify']
     }

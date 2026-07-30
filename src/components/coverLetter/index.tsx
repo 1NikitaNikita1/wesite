@@ -7,11 +7,11 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import icon from '../../assets/js-icon.svg';
 
-const COVER_LETTER = `As a Web Engineer, I build product-focused web applications using React, Next.js, Vue, Nuxt, and TypeScript. I have experience working in product teams and Web3 environments, where I contribute to frontend architecture, API integration, and the development of scalable and maintainable UI systems. My focus is on turning product requirements into reliable, production-ready features.
+const COVER_LETTER = `I am a Full-Stack Web Engineer with experience building and scaling commercial products using React, Next.js, Vue, Nuxt, TypeScript, and Node.js. Throughout my career, I have designed frontend architecture, developed reusable UI systems, integrated complex APIs, and delivered production-ready features across SaaS, Web3, and data-driven platforms.
 //
-I collaborate closely with designers and backend engineers in Agile teams to deliver consistent user experiences. I pay strong attention to performance, accessibility, and responsive design, ensuring that applications are fast, stable, and aligned with both business and user needs.`;
+Beyond implementation, I enjoy taking ownership of products, improving architecture, solving technical challenges, and delivering solutions that create measurable business value. I work closely with cross-functional teams to build fast, maintainable, and user-focused applications with an emphasis on performance, scalability, and long-term maintainability.`;
 
-const TAG = 'Who am I';
+const TAG = 'Who I am';
 interface CoverLetterProps {
     tag?: string;
     body?: string;
