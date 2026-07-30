@@ -3,6 +3,9 @@ import { ScTag, Tag } from '../tag';
 import styled from 'styled-components';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
+import info from '../../assets/info.svg';
+import { Tooltip } from 'react-tooltip';
+
 export type TCase = {
     start: string;
     end: string;
@@ -17,7 +20,16 @@ export type TCase = {
     };
 };
 
-export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, location }) => {
+export const Case: FC<TCase & { id: string }> = ({
+    start,
+    end,
+    title,
+    link,
+    shortDescription,
+    location,
+    technologies = [],
+    id
+}) => {
     const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
 
     const handle_navigate = useCallback(() => {
@@ -34,6 +46,37 @@ export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, loc
                         {start} — {end}
                     </div>
                     <div className='title'>{title}</div>
+                    <ul className='tech'>
+                        {technologies.slice(0, 4).map((item, index) => (
+                            <li className='tech-item' key={index}>
+                                {item}
+                            </li>
+                        ))}
+                        <li className='info-item' data-tooltip-id={`tooltip-${id}`}>
+                            + {technologies.slice(4).length} more <img alt='' src={info} />
+                        </li>
+                        <Tooltip
+                            style={{
+                                color: '#fff',
+                                background: 'var(--background-primary)',
+                                textAlign: 'left',
+                                lineHeight: '1.3',
+                                opacity: '1 !important',
+                                zIndex: 2000,
+                                whiteSpace: 'pre-line',
+                                backdropFilter: 'blur(5)',
+                                boxShadow:
+                                    '0px 8px 28px -6px rgba(0, 0, 0, 0.12), 0px 18px 88px -4px rgba(0, 0, 0, 0.14)'
+                            }}
+                            id={`tooltip-${id}`}
+                        >
+                            <ScTooltipData>
+                                {technologies.slice(4).map((item) => (
+                                    <div key={item}>{item}</div>
+                                ))}
+                            </ScTooltipData>
+                        </Tooltip>
+                    </ul>
                     <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
                     {link && (
@@ -59,6 +102,14 @@ export const Case: FC<TCase> = ({ start, end, title, link, shortDescription, loc
     );
 };
 
+const ScTooltipData = styled.div`
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+`;
+
 const ScCase = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isIntersecting'].includes(prop)
 })<{ isIntersecting: boolean }>`
@@ -74,6 +125,44 @@ const ScCase = styled.div.withConfig({
     transition: ease 0.5s;
     opacity: ${({ isIntersecting }) => (isIntersecting ? 1 : 0)};
     scale: ${({ isIntersecting }) => (isIntersecting ? 1 : 0.5)};
+    .tech {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 0;
+        margin: 12px 0;
+
+        li {
+            list-style: none;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
+            line-height: 16px;
+            border-radius: 16px;
+            background: #fff1;
+            display: flex;
+            align-items: center;
+
+            &.info-item {
+                padding: 0;
+                color: #fff5;
+                background: transparent;
+                border-radius: 0;
+                gap: 4px;
+                cursor: pointer;
+                img {
+                    flex: 0 0 14px;
+                    max-width: 14px;
+                    height: 14px;
+                    opacity: 0.5;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
     button {
         background: var(--color-accent);
         color: #fff;

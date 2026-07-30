@@ -11,21 +11,23 @@ export const EXPERIENCE: TCase[] = [
         shortDescription:
             'Independently built and launched a SaaS platform for data analytics and marketing gamification, covering product design, architecture, frontend, backend, APIs, integrations, payments, and deployment. The platform serves up to 6 active clients and has processed data and interactions for 1,500+ users.',
         technologies: [
-            'React',
-            'TypeScript',
+            'Architecture',
             'Next.js',
             'Node.js',
+            'Docker',
+            'React',
+            'TypeScript',
+            'Supabase',
+            'CI/CD',
             'Vite',
             'JavaScript',
             'sc-js',
             'MUI',
-            'Architecture',
             'Next.js API Routes',
             'Prisma',
             'REST',
             'JWT',
             'Bcrypt',
-            'Supabase',
             'Zustand',
             'Axios',
             'React Router',
@@ -34,9 +36,7 @@ export const EXPERIENCE: TCase[] = [
             'D3',
             'Papaparse',
             'Git',
-            'Docker',
             'Vercel',
-            'CI/CD',
             'Actions',
             'Deploy',
             'Stripe',
@@ -80,11 +80,11 @@ export const EXPERIENCE: TCase[] = [
         location: 'Kyiv',
         technologies: [
             'React.js',
-            'Vue2/3',
-            'Pina',
             'TypeScript',
             'Zustand',
             'styled-components',
+            'Vue2/3',
+            'Pina',
             'react-router-dom',
             'Node.js',
             'Ethers.js',
@@ -168,7 +168,7 @@ export const Experience: FC = () => {
         <ScExperience>
             <Heading tag='Employment History' title='How I gained my experience?' />
             {EXPERIENCE.map((item, index) => (
-                <Case {...item} key={index} />
+                <Case {...item} id={`case-card-${index}`} key={index} />
             ))}
         </ScExperience>
     );
