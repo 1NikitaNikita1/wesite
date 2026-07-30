@@ -5,6 +5,7 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import info from '../../assets/info.svg';
 import { Tooltip } from 'react-tooltip';
+import { ScreenType, useScreenType } from '../../hooks/useScreenType';
 
 export type TCase = {
     start: string;
@@ -30,6 +31,8 @@ export const Case: FC<TCase & { id: string }> = ({
     technologies = [],
     id
 }) => {
+    const screenType = useScreenType();
+
     const [targetRef, isIntersecting] = useIntersectionObserver({ rootMargin: '-150px' });
 
     const handle_navigate = useCallback(() => {
@@ -55,27 +58,29 @@ export const Case: FC<TCase & { id: string }> = ({
                         <li className='info-item' data-tooltip-id={`tooltip-${id}`}>
                             + {technologies.slice(4).length} more <img alt='' src={info} />
                         </li>
-                        <Tooltip
-                            style={{
-                                color: '#fff',
-                                background: 'var(--background-primary)',
-                                textAlign: 'left',
-                                lineHeight: '1.3',
-                                opacity: '1 !important',
-                                zIndex: 2000,
-                                whiteSpace: 'pre-line',
-                                backdropFilter: 'blur(5)',
-                                boxShadow:
-                                    '0px 8px 28px -6px rgba(0, 0, 0, 0.12), 0px 18px 88px -4px rgba(0, 0, 0, 0.14)'
-                            }}
-                            id={`tooltip-${id}`}
-                        >
-                            <ScTooltipData>
-                                {technologies.slice(4).map((item) => (
-                                    <div key={item}>{item}</div>
-                                ))}
-                            </ScTooltipData>
-                        </Tooltip>
+                        {screenType !== ScreenType.mobile_portrait && (
+                            <Tooltip
+                                style={{
+                                    color: '#fff',
+                                    background: 'var(--background-primary)',
+                                    textAlign: 'left',
+                                    lineHeight: '1.3',
+                                    opacity: '1 !important',
+                                    zIndex: 2000,
+                                    whiteSpace: 'pre-line',
+                                    backdropFilter: 'blur(5)',
+                                    boxShadow:
+                                        '0px 8px 28px -6px rgba(0, 0, 0, 0.12), 0px 18px 88px -4px rgba(0, 0, 0, 0.14)'
+                                }}
+                                id={`tooltip-${id}`}
+                            >
+                                <ScTooltipData>
+                                    {technologies.slice(4).map((item) => (
+                                        <div key={item}>{item}</div>
+                                    ))}
+                                </ScTooltipData>
+                            </Tooltip>
+                        )}
                     </ul>
                     <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
