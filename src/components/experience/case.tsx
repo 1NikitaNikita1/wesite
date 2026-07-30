@@ -85,7 +85,7 @@ export const Case: FC<TCase & { id: string }> = ({
                     </ul>
                     <div className='description'>{shortDescription}</div>
                     <div className='location'>{location}</div>
-                    {link && (
+                    {link && link.to && (
                         <button data-is-empty={Number(!link.to)} onClick={handle_navigate}>
                             {link.to ? link.text : 'Page in progress'}
                         </button>
