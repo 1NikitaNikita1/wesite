@@ -73,5 +73,6 @@ const ScFloatBar = styled.div`
     }
 
     @media (max-width: 767px) {
+        white-space: nowrap;
     }
 `;
