@@ -4,6 +4,7 @@ import { CVDocument } from '../document';
 import { useCvPDFData } from '../../hooks/useCvPDFData';
 import { EXPERIENCE as cases } from '../experience';
 import { SKILLS as skills } from '../skills';
+import { trackPdf } from '../../hooks/useCvTracker';
 
 const STATIC_DATA = {
     personalInfo: {
@@ -45,7 +46,11 @@ export const ExtractPDFButton: FC = () => {
     });
 
     return (
-        <PDFDownloadLink document={<CVDocument data={cvData} />} fileName='mykyta-web-developer-cv.pdf'>
+        <PDFDownloadLink
+            document={<CVDocument data={cvData} />}
+            fileName='mykyta-web-developer-cv.pdf'
+            onClick={() => trackPdf()}
+        >
             Download CV
         </PDFDownloadLink>
     );

@@ -18,3 +18,22 @@ export function useCvTracker(_case?: string) {
         }).catch(() => {});
     }, [_case]);
 }
+
+export async function trackPdf() {
+    if (sessionStorage.getItem('cvpdf__tracked') === '1') return;
+    sessionStorage.setItem('cvpdf__tracked', '1');
+
+    fetch('/api/track-pdf', {
+        method: 'POST'
+    }).catch(() => {});
+}
+
+
+export async function trackCall() {
+    if (sessionStorage.getItem('cvcall__tracked') === '1') return;
+    sessionStorage.setItem('cvcall__tracked', '1');
+
+    fetch('/api/track-call', {
+        method: 'POST'
+    }).catch(() => {});
+}

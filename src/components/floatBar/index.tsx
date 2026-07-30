@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { ExtractPDFButton } from '../extractPdfButton';
+import { trackCall } from '../../hooks/useCvTracker';
 
 export const FloatBar: FC = () => {
     return (
         <ScFloatBar>
             <ExtractPDFButton />
-            <a href='https://cal.com/nikita-nikita-vajfvb' target='_blank' rel='noreferrer'>
+            <a href='https://cal.com/nikita-nikita-vajfvb' target='_blank' rel='noreferrer' onClick={trackCall}>
                 Book a Call
             </a>
         </ScFloatBar>

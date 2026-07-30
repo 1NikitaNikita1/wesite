@@ -19,12 +19,6 @@ export default async function handler(req: Request): Promise<Response> {
 
     const userAgent = req.headers.get('user-agent') || 'unknown';
 
-    let caseName: string | undefined;
-
-    try {
-        const body = await req.json();
-        caseName = body?.case;
-    } catch {}
 
     let city = 'unknown';
     let country = 'unknown';
@@ -51,8 +45,7 @@ export default async function handler(req: Request): Promise<Response> {
     });
 
     const text =
-        `📄 CV переглянуто\n\n` +
-        (caseName ? `🎯 Сторінка: ${caseName}\n` : '') +
+        `📄 CV сгенеровано\n\n` +
         `🕐 Час: ${kyivTime} (Kyiv)\n` +
         `🌍 Місто: ${city}, ${region}, ${country}\n` +
         `📡 IP: ${ip}\n` +
