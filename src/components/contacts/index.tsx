@@ -106,6 +106,7 @@ export const ScContacts = styled.footer`
 
         .contacts-wrap {
             flex-direction: column;
+            margin-bottom: 64px;
             .item {
                 flex: initial;
                 width: 100%;

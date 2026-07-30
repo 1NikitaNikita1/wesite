@@ -3,13 +3,52 @@ import styled from 'styled-components';
 import { Heading } from '../heading';
 import { TCase, Case } from './case';
 
-const EXPERIENCE: TCase[] = [
+export const EXPERIENCE: TCase[] = [
     {
         start: '01/2026',
         end: 'Present',
         title: 'Founder & Full-Stack Developer \nat Yoona Space',
         shortDescription:
             'Independently built and launched a SaaS platform for data analytics and marketing gamification, covering product design, architecture, frontend, backend, APIs, integrations, payments, and deployment. The platform serves up to 6 active clients and has processed data and interactions for 1,500+ users.',
+        technologies: [
+            'React',
+            'TypeScript',
+            'Next.js',
+            'Node.js',
+            'Vite',
+            'JavaScript',
+            'sc-js',
+            'MUI',
+            'Architecture',
+            'Next.js API Routes',
+            'Prisma',
+            'REST',
+            'JWT',
+            'Bcrypt',
+            'Supabase',
+            'Zustand',
+            'Axios',
+            'React Router',
+            'Zod',
+            'Recharts',
+            'D3',
+            'Papaparse',
+            'Git',
+            'Docker',
+            'Vercel',
+            'CI/CD',
+            'Actions',
+            'Deploy',
+            'Stripe',
+            'LemonSqueezy',
+            'Postman',
+            'QR Code Styling',
+            'Workflow',
+            'Figma',
+            'Jira',
+            'Framer',
+            'Photoshop'
+        ],
         description:
             'Designed and independently built Yoona Space end-to-end, a data analytics and marketing gamification platform consisting of two products: Yoona Charts and Yoona Leaderboards. Responsible for the entire product lifecycle, including product design, architecture, frontend, backend, APIs, third-party integrations, payments, legal setup, and deployment.\n\n' +
             'Built the platform using React.js, Next.js, TypeScript, Node.js, Express.js, Supabase, PostgreSQL, Zustand, Styled Components, and Docker, with a focus on scalable and reusable product architecture.\n\n' +
@@ -35,10 +74,23 @@ const EXPERIENCE: TCase[] = [
             'Developed and maintained product interfaces on React.js and TypeScript, working across 3 core product entities: client applications, admin panels, and internal API libraries.\n\n' +
             'Built the frontend architecture from the ground up: Zustand for centralized state management, styled-components for the UI layer, and react-router-dom for routing.\n\n' +
             'Built reusable components, including a drag-and-drop system (Kanban board) and custom UI elements decoupled from business logic via the store.\n\n' +
-            'Integrated external APIs and Node.js serverless functions (Vercel), working with a Supabase database.\n\n' +
+            'Integrated external APIs and Node.js' +
             'Implemented blockchain-related functionality using Ethers.js and Web3 technologies.\n\n' +
             'Customized client-side solutions to support integration with different client frameworks and technology stacks.',
         location: 'Kyiv',
+        technologies: [
+            'React.js',
+            'Vue2/3',
+            'Pina',
+            'TypeScript',
+            'Zustand',
+            'styled-components',
+            'react-router-dom',
+            'Node.js',
+            'Ethers.js',
+            'Web3',
+            'GitHub Actions'
+        ],
         link: {
             text: 'Dive in'
         }
@@ -54,6 +106,17 @@ const EXPERIENCE: TCase[] = [
             'Created reusable UI components, implemented frontend logic, and managed application state using React Context API.\n\n' +
             'Collaborated with the team to improve product functionality and user experience.',
         location: 'Kyiv - Remote',
+        technologies: [
+            'React.js',
+            'TypeScript',
+            'JavaScript',
+            'HTML/CSS',
+            'Sass',
+            'Styled Components',
+            'Context API',
+            'Redux',
+            'REST API'
+        ],
         link: {
             text: 'Dive in'
         }
@@ -71,7 +134,19 @@ const EXPERIENCE: TCase[] = [
         location: 'Kyiv',
         link: {
             text: 'Dive in'
-        }
+        },
+        technologies: [
+            'React.js',
+            'TypeScript',
+            'JavaScript',
+            'HTML/CSS',
+            'Sass',
+            'Styled Components',
+            'Node.js',
+            'Context API',
+            'Redux',
+            'REST API'
+        ]
     },
     {
         start: '09/2017',
@@ -83,7 +158,8 @@ const EXPERIENCE: TCase[] = [
             'Developed websites, landing pages, online stores, and admin panels using HTML, CSS, JavaScript, and jQuery.\n\n' +
             'Converted designs into responsive web layouts and adapted interfaces for different devices.\n\n' +
             'Created and optimized website assets, banners, and UI elements to improve visual consistency and user experience.',
-        location: 'Remote'
+        location: 'Remote',
+        technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'WordPress', 'Shopify']
     }
 ];
 

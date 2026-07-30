@@ -10,6 +10,7 @@ export type TCase = {
     description: string;
     location: string;
     shortDescription: string;
+    technologies?: string[];
     link?: {
         text: string;
         to?: string;

@@ -13,7 +13,7 @@ export type TSkillList = {
 
 export type TSkills = [TSkillList[], TSkillList[]];
 
-const SKILLS: TSkills = [
+export const SKILLS: TSkills = [
     [
         {
             items: [
