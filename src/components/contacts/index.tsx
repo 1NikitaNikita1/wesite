@@ -13,16 +13,16 @@ export const Contacts: FC = () => {
                 </span>
             </Heading>
             <div className='contacts-wrap'>
-                <div className='item'>
+                {/* <div className='item'>
                     <span className='label'>Phone Number</span>
                     <a href='tel:+380677332108'>+380677332108</a>
-                </div>
+                </div> */}
                 <div className='item'>
                     <span className='label'>Email</span>
-                    <a href='mailto:work.Mykyta.00@gmail.com'>work.Mykyta.00@gmail.com</a>
+                    <a href='mailto:work.nikita.00@gmail.com'>work.nikita.00@gmail.com</a>
                 </div>
                 <div className='item'>
-                    <span className='label'>Links</span>
+                    <span className='label'>Telegram</span>
                     <a href='https://t.me/qedcbjm' target='_blank' rel='noreferrer'>
                         @qedcbjm
                     </a>
@@ -60,7 +60,7 @@ export const ScContacts = styled.footer`
         max-width: 969px;
         margin-inline: auto;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         margin-top: 32px;
 
         .item {

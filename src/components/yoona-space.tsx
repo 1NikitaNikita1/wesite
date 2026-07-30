@@ -50,7 +50,7 @@ export const YoonaSpace: FC = () => {
     const header_ref = useParallax({ speed: 0.15, initialOffset: 0 });
     const screenType = useScreenType();
     useCvTracker('Yoona space');
-    
+
     return (
         <ScYoonaSpace data-component-theme='light'>
             <GlowWrapper colors={['rgba(220, 82, 134,.4)', 'rgba(107, 74, 255,.4)']}>
@@ -273,7 +273,7 @@ const ScSkillsWrap = styled.div`
     @media (max-width: 577px) {
         justify-content: center;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: wrap;
     }
 `;
