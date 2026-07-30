@@ -56,7 +56,8 @@ export const Case: FC<TCase & { id: string }> = ({
                             </li>
                         ))}
                         <li className='info-item' data-tooltip-id={`tooltip-${id}`}>
-                            + {technologies.slice(4).length} more <img alt='' src={info} />
+                            + {technologies.slice(4).length} more{' '}
+                            {screenType !== ScreenType.mobile_portrait && <img alt='' src={info} />}
                         </li>
                         {screenType !== ScreenType.mobile_portrait && (
                             <Tooltip
