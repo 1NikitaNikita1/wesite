@@ -46,6 +46,73 @@ const SKILLS: TSkills = [
     ]
 ];
 
+export type SkillCategory =
+    | 'Frontend'
+    | 'Backend'
+    | 'State Management & Libraries'
+    | 'Blockchain'
+    | 'Cloud & DevOps'
+    | 'API & Testing'
+    | 'Payments & Integrations'
+    | 'Design & Project Management'
+    | 'CMS';
+
+export const SKILL_CATEGORIES: Record<SkillCategory, string[]> = {
+    Frontend: [
+        'React',
+        'Vue',
+        'Next.js',
+        'Vite',
+        'TypeScript',
+        'JavaScript',
+        'HTML',
+        'CSS',
+        'Sass',
+        'Styled Components',
+        'MUI',
+        'React Router',
+        'Architecture'
+    ],
+
+    Backend: [
+        'Node.js',
+        'Express.js',
+        'NestJS',
+        'Next.js API Routes',
+        'Prisma',
+        'REST',
+        'GraphQL',
+        'JWT',
+        'Bcrypt',
+        'Microservices',
+        'Supabase'
+    ],
+
+    'State Management & Libraries': [
+        'Context',
+        'Redux',
+        'Zustand',
+        'RxJS',
+        'React Query',
+        'Axios',
+        'Zod',
+        'Recharts',
+        'D3',
+        'Papaparse'
+    ],
+
+    Blockchain: ['Ethers.js', 'Web3.js', 'sc-js'],
+
+    'Cloud & DevOps': ['Git', 'Docker', 'Vercel', 'AWS', 'CI/CD', 'GitHub Actions', 'Deployment'],
+
+    'API & Testing': ['Swagger', 'Postman', 'Authentication'],
+
+    'Payments & Integrations': ['Stripe', 'LemonSqueezy', 'QR Code Styling', 'Workflow'],
+
+    'Design & Project Management': ['Figma', 'Jira', 'Framer', 'Lottie', 'Photoshop', 'Design'],
+
+    CMS: ['Strapi', 'Contentful', 'Sanity', 'WordPress', 'Headless']
+};
 export const YoonaSpace: FC = () => {
     const header_ref = useParallax({ speed: 0.15, initialOffset: 0 });
     const screenType = useScreenType();

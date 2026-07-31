@@ -7,7 +7,7 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 import icon from '../../assets/js-icon.svg';
 
-const COVER_LETTER = `I am a Web Engineer with experience building and scaling commercial products using React, Next.js, Vue, Nuxt, TypeScript, and Node.js. Throughout my career, I have designed frontend architecture, developed reusable UI systems, integrated complex APIs, and delivered production-ready features across SaaS, Web3, and data-driven platforms.
+const COVER_LETTER = `I am a Full-Stack Engineer with experience building and scaling commercial products using React, Next.js, Vue, Nuxt, TypeScript, and Node.js. Throughout my career, I have designed frontend architecture, developed reusable UI systems, integrated complex APIs, and delivered production-ready features across SaaS, Web3, and data-driven platforms.
 //
 Beyond implementation, I enjoy taking ownership of products, improving architecture, solving technical challenges, and delivering solutions that create measurable business value. I work closely with cross-functional teams to build fast, maintainable, and user-focused applications with an emphasis on performance, scalability, and long-term maintainability.`;
 

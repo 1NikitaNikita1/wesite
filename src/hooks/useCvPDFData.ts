@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { TSkills } from '../components/skills';
 import { TCase } from '../components/experience/case';
 import { CVData } from '../components/document';
+import { SKILL_CATEGORIES } from '../components/yoona-space';
 
 export type TCoverLetter = {
     greeting?: string;
@@ -55,7 +56,7 @@ function splitTitleIntoPositionAndCompany(title: string): {
     position: string;
     company: string;
 } {
-    const normalized = title.replace(/\s+/g, ' ').trim(); 
+    const normalized = title.replace(/\s+/g, ' ').trim();
     const separator = ' at ';
     const idx = normalized.indexOf(separator);
 
@@ -67,12 +68,6 @@ function splitTitleIntoPositionAndCompany(title: string): {
         position: normalized.slice(0, idx).trim(),
         company: normalized.slice(idx + separator.length).trim()
     };
-}
-function flattenSkills(skills: TSkills, labels: [string, string]) {
-    return skills.flatMap((group, groupIndex) => {
-        const items = group.flatMap((list) => list.items);
-        return items.length > 0 ? [{ category: labels[groupIndex], items }] : [];
-    });
 }
 
 function mapCaseToExperience(c: TCase) {
@@ -89,18 +84,33 @@ function mapCaseToExperience(c: TCase) {
         link: c.link
     };
 }
+
+function groupSkills(skills: TSkills) {
+    const allSkills = skills.flatMap((group) => group.flatMap((list) => list.items));
+
+    return Object.entries(SKILL_CATEGORIES)
+        .map(([category, categorySkills]) => {
+            const items = allSkills.filter((skill) => categorySkills.includes(skill));
+
+            return {
+                category,
+                items
+            };
+        })
+        .filter((group) => group.items.length > 0);
+}
+
 export function useCvPDFData({
     personalInfo,
     summary,
     cases,
     skills,
     coverLetter,
-    education,
-    skillGroupLabels = ['Technical Skills', 'Other Skills']
+    education
 }: UseCVPDFDataParams): CVData {
     const experience = useMemo(() => cases.map(mapCaseToExperience), [cases]);
 
-    const flatSkills = useMemo(() => flattenSkills(skills, skillGroupLabels), [skills, skillGroupLabels]);
+    const groupedSkills = useMemo(() => groupSkills(skills), [skills]);
 
     return useMemo(
         () => ({
@@ -116,9 +126,9 @@ export function useCvPDFData({
             summary,
             experience,
             education,
-            skills: flatSkills,
+            skills: groupedSkills,
             coverLetter
         }),
-        [personalInfo, summary, experience, education, flatSkills, coverLetter]
+        [personalInfo, summary, experience, education, groupedSkills, coverLetter]
     );
 }

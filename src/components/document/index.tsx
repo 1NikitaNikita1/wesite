@@ -120,7 +120,12 @@ const styles = StyleSheet.create({
     },
     twoColRow: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        flexWrap: 'wrap',
+        gap: 12
+    },
+    languageChip: {
+        fontSize: 9,
+        color: '#555'
     }
 });
 
@@ -175,24 +180,26 @@ export const CVDocument = ({ data }: { data: CVData }) => (
                 <Text style={styles.sectionTitle}>Summary</Text>
                 <Text style={styles.summary}>{data.summary}</Text>
             </View>
+
             {/* Skills */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Skills</Text>
-                <View style={styles.skillsGrid}>
-                    {data.skills.map((skill, i) => (
-                        <View key={i} style={styles.skillCategory}>
-                            <Text style={styles.skillCategoryTitle}>{skill.category}</Text>
-                            <Text style={styles.skillItems}>{skill.items.join(' · ')}</Text>
-                        </View>
-                    ))}
-                </View>
+                {data.skills.map((skill, i) => (
+                    <View key={i} style={styles.skillCategory}>
+                        <Text style={styles.skillCategoryTitle}>{skill.category}</Text>
+                        <Text style={styles.skillItems}>{skill.items.join(' · ')}</Text>
+                    </View>
+                ))}
             </View>
 
             {/* Experience */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Employment history</Text>
                 {data.experience.map((exp, i) => (
-                    <View key={i} style={styles.entry}>
+                    // minPresenceAhead не дає заголовку запису "відірватись"
+                    // від решти блоку в кінці сторінки — якщо для заголовка
+                    // + дат немає ще ~60pt місця, весь блок піде на наступну сторінку
+                    <View key={i} style={styles.entry} minPresenceAhead={45}>
                         <View style={styles.entryHeaderRow}>
                             <Text style={styles.entryPosition}>{exp.position}</Text>
                             <Text style={styles.entryDates}>
@@ -209,12 +216,16 @@ export const CVDocument = ({ data }: { data: CVData }) => (
                             </Text>
                         )}
 
-                        {exp.description.map((line, j) => (
-                            <View key={j} style={styles.bulletRow}>
-                                <Text style={styles.bulletDot}>•</Text>
-                                <Text style={styles.bulletText}>{line}</Text>
-                            </View>
-                        ))}
+                        {(exp.description ?? [])
+                            // прибираємо порожні/пробільні/null/undefined рядки —
+                            // саме вони давали "порожній буллет" на скріншоті
+                            .filter((line) => typeof line === 'string' && line.trim().length > 0)
+                            .map((line, j) => (
+                                <View key={j} style={styles.bulletRow}>
+                                    <Text style={styles.bulletDot}>•</Text>
+                                    <Text style={styles.bulletText}>{line}</Text>
+                                </View>
+                            ))}
                     </View>
                 ))}
             </View>
@@ -224,7 +235,7 @@ export const CVDocument = ({ data }: { data: CVData }) => (
                 <View style={{ width: '60%' }}>
                     <Text style={styles.sectionTitle}>Education</Text>
                     {data.education.map((edu, i) => (
-                        <View key={i} style={styles.entry}>
+                        <View key={i} style={styles.entry} minPresenceAhead={40}>
                             <Text style={styles.entryPosition}>
                                 {edu.degree}, {edu.field}
                             </Text>

@@ -9,12 +9,13 @@ import { trackPdf } from '../../hooks/useCvTracker';
 const STATIC_DATA = {
     personalInfo: {
         fullName: 'Mykyta Yudakov',
-        title: 'Web Developer',
+        title: 'Full-Stack Developer',
         email: 'work.nikita.00@gmail.com',
         phone: '+380677332108',
         linkedin: 'mykyta.site'
     },
-    summary: 'Web developer with 8 years of experience',
+    summary:
+        'Frontend-focused Full-Stack Developer with over 5 years of experience building scalable web applications, SaaS products, and complex user interfaces. Strong expertise in React, Next.js, TypeScript, Node.js, and modern frontend architecture. Experienced in designing reusable systems, integrating third-party APIs, and delivering products from concept to production.Founder of Yoona Space, where I independently designed and built a SaaS platform for analytics and marketing gamification, covering product architecture, frontend, backend, APIs, payments, infrastructure, and deployment. Passionate about clean architecture, performance optimization, and creating high-quality developer and user experiences.',
     education: [
         {
             institution: '"KROK" university',
@@ -47,8 +48,18 @@ export const ExtractPDFButton: FC = () => {
 
     return (
         <PDFDownloadLink
-            document={<CVDocument data={cvData} />}
-            fileName='mykyta-web-developer-cv.pdf'
+            document={
+                <CVDocument
+                    data={{
+                        ...cvData,
+                        languages: [
+                            { name: 'English', level: 'Intermediate' },
+                            { name: 'Ukrainian', level: 'Fluent' }
+                        ]
+                    }}
+                />
+            }
+            fileName='mykyta-full-stack-developer-cv.pdf'
             onClick={() => trackPdf()}
         >
             Download CV
